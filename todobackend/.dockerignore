@@ -1,5 +1,5 @@
 # Ignore the virtual environment
-src/venv
+venv
 
 # Ignore the reports folder
 reports

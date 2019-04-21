@@ -1,0 +1,33 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: "Todobackend Stack"
+
+# Stack Parameters
+Parameters:
+  VpcId:
+    Type: "AWS::EC2::VPC::Id"
+    Description: "The Target VPC Id"
+  Subnet Id:
+    Type: "AWS::EC2::Subnet::Id"
+    Description:  "The Target Subnet Id in Availability Zone a"
+  Keypair:
+    Type: "String"
+    Description: "The key pair that is allowed SSH access"
+  InstanceCount:
+    Type: "Number"
+    Description: "The desired number of application instances"
+
+
+
+# Stack Resources
+Resources: 
+  AutoScalingGroup:
+    Type: "AWS::AutoSacling::AutoScalingGroup"
+    Properties:   
+      VPCZoneIdentifier: [{"Ref": "SubnetId"}]
+      LaunchConfigurationName: {"Ref": "AutoScalingLaunchConfiguration"}
+      MinSize: 0
+      MaxSize: 2
+      DesiredCapacity: {"Ref": "InstanceCount"}
+      Tags:
+        - Key: "Name"
+          Value: {"Fn::Join": [""]}
