@@ -8,7 +8,7 @@ setup (
     include_package_data    = True,
     scripts                 = ["manage.py"],
     install_requires        = [
-                                "Django>=1.9, <2.0",
+                                "Django>=1.9, <3.0",
                                 "django-cors-headers>=1.1.0",
                                 "django-nose>=1.4.4",
                                 "djangorestframework>=3.3.0",
